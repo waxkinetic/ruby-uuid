@@ -162,8 +162,8 @@ class UUID
 					open STATE_FILE, 'w' do |fp|
 						fp.flock IO::LOCK_EX
 						write_state fp, k, node
-						fp.chmod 0o777 # must be world writable
 					end
+          File::chmod 0o777, STATE_FILE # must be world writable
 				end
 				open STATE_FILE, 'r+' do |fp|
 					fp.flock IO::LOCK_EX
